@@ -1,2 +1,2 @@
-# MyRepo13
-My Repo
+# Inventory Management System
+Inventory Management System
