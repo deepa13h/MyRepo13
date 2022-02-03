@@ -187,7 +187,7 @@ class Application:
             self.x+=1
         tkinter.messagebox.showinfo("success","Successfully generated bill")
 
-
+#
 root=Tk()
 b=Application(root)
 root.geometry("1566x768+0+0")
