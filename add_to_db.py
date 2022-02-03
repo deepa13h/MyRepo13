@@ -1,5 +1,6 @@
 #import all the modules
 from tkinter import *
+from subprocess import call
 
 import sqlite3
 import tkinter.messagebox
@@ -16,52 +17,52 @@ for total in items:
 class Database:
     def __init__(self,master,*args,**kwargs):
          self.master=master
-         self.heading=Label(master,text="Add New Product to the Databse",font=('arial 35 bold'),fg='black',bg='green')
+         self.heading=Label(master,text="Add New Product to the Database",font=('arial 22 bold'),fg='black',bg='green')
          self.heading.place(x=400,y=0)
 
          #inputs for the database
-         self.name_l=Label(master,text="Enter Product Name",font=('arial 18 bold italic'))
+         self.name_l=Label(master,text="Enter Product Name",font=('arial 16 bold italic'))
          self.name_l.place(x=0,y=70)
 
-         self.stock_l=Label(master,text="Enter Number of Items in Stock",font=('arial 18 bold italic'))
+         self.stock_l=Label(master,text="Enter Number of Items in Stock",font=('arial 16 bold italic'))
          self.stock_l.place(x=0,y=120)
 
-         self.cp_l = Label(master, text="Enter Cost Price ", font=('arial 18 bold italic'))
+         self.cp_l = Label(master, text="Enter Cost Price ", font=('arial 16 bold italic'))
          self.cp_l.place(x=0, y=170)
 
-         self.sp_l = Label(master, text="Enter Retail Price", font=('arial 18 bold italic'))
+         self.sp_l = Label(master, text="Enter Retail Price", font=('arial 16 bold italic'))
          self.sp_l.place(x=0, y=220)
 
-         self.vendor_l = Label(master, text="Enter Vendor Name", font=('arial 18 bold italic'))
+         self.vendor_l = Label(master, text="Enter Vendor Name", font=('arial 16 bold italic'))
          self.vendor_l.place(x=0, y=270)
 
-         self.vendor_phone_l = Label(master, text="Enter Vendor's Contact Detail", font=('arial 18 bold italic'))
+         self.vendor_phone_l = Label(master, text="Enter Vendor's Contact Detail", font=('arial 16 bold italic'))
          self.vendor_phone_l.place(x=0, y=320)
 
-         self.id_l = Label(master, text="Enter Product ID", font=('arial 18 bold italic'))
+         self.id_l = Label(master, text="Enter Product ID", font=('arial 16 bold italic'))
          self.id_l.place(x=0, y=370)
 
         #further entries
 
-         self.name_e=Entry(master,width=25,font=('arial 18 bold'))
+         self.name_e=Entry(master,width=25,font=('arial 16 bold'))
          self.name_e.place(x=380,y=70)
 
-         self.stock_e = Entry(master, width=25, font=('arial 18 bold'))
+         self.stock_e = Entry(master, width=25, font=('arial 16 bold'))
          self.stock_e.place(x=380, y=120)
 
-         self.cp_e = Entry(master, width=25, font=('arial 18 bold'))
+         self.cp_e = Entry(master, width=25, font=('arial 16 bold'))
          self.cp_e.place(x=380, y=170)
 
-         self.sp_e = Entry(master, width=25, font=('arial 18 bold'))
+         self.sp_e = Entry(master, width=25, font=('arial 16 bold'))
          self.sp_e.place(x=380, y=220)
 
-         self.vendor_e = Entry(master, width=25, font=('arial 18 bold'))
+         self.vendor_e = Entry(master, width=25, font=('arial 16 bold'))
          self.vendor_e.place(x=380, y=270)
 
-         self.vendor_phone_e = Entry(master, width=25, font=('arial 18 bold'))
+         self.vendor_phone_e = Entry(master, width=25, font=('arial 16 bold'))
          self.vendor_phone_e.place(x=380, y=320)
 
-         self.id_e=Entry(master,width=25,font=('arial 18 bold'))
+         self.id_e=Entry(master,width=25,font=('arial 16 bold'))
          self.id_e.place(x=380,y=370)
 
          
@@ -117,11 +118,17 @@ class Database:
        self.vendor_e.delete(0, END)
        self.vendor_phone_e.delete(0, END)
 
+
 root=Tk()
+def homePage():
+    root.destroy()
+    import project
+Button(root, text="Home Page",command=homePage,width=18,height=2,bg='grey',fg='black').place(x=720,y=420)
 
 b=Database(root)
 root.configure(background='lightyellow',highlightbackground='green',highlightcolor='green',highlightthickness=5)
-root.geometry("1366x768+0+0")
-root.title("Inventory Management System - Group 4")
+root.geometry("1566x768+0+0")
+root.title("Inventory Management System")
+root['bg']='#5d8a82'
 
 root.mainloop()
